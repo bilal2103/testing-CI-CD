@@ -7,18 +7,18 @@ phases:
       - apt-get update
       - apt-get install -y python3 python3-pip
       - pip3 install --upgrade pip
-      - pip3 install pyinstaller  # Install pyinstaller
+      - pip3 install pyinstaller  
   build:
     commands:
       - echo "Running Python script to generate executable..."
-      - pyinstaller --onefile SampleCode.py  # Generate the executable
+      - pyinstaller --onefile SampleCode.py  
       - echo "Build process completed! Executable generated."
   post_build:
     commands:
       - echo "Post-build phase started..."
       - echo "Running tests on the generated executable..."
       - cd dist
-      - OUTPUT=$(./SampleCode)  # Capture the output of the executable
+      - OUTPUT=$(./SampleCode)  
       - echo "$OUTPUT"
       - EXPECTED_OUTPUT="7 x 1 = 77 x 2 = 147 x 3 = 217 x 4 = 287 x 5 = 357 x 6 = 427 x 7 = 497 x 8 = 567 x 9 = 637 x 10 = 70"
       - if [ "$OUTPUT" != "$EXPECTED_OUTPUT" ]; then echo "Test failed Output does not match expected results."; exit 1; fi
@@ -26,4 +26,4 @@ phases:
       - echo "Preparing files for upload to S3..."
 artifacts:
   files:
-    - "dist/SampleCode/"  # Path to the generated executable (relative to the build environment)
+    - "dist/SampleCode" 
