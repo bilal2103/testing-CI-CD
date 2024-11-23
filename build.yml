@@ -21,11 +21,8 @@ phases:
       - OUTPUT=$(./your_python_file)  # Capture the output of the executable
       - echo "$OUTPUT"
       - EXPECTED_OUTPUT="7 x 1 = 77 x 2 = 147 x 3 = 217 x 4 = 287 x 5 = 357 x 6 = 427 x 7 = 497 x 8 = 567 x 9 = 637 x 10 = 70"
-      - if [ "$OUTPUT" != "$EXPECTED_OUTPUT" ]; then
-          echo "Test failed: Output does not match expected results.";
-          exit 1;
-        fi
-      - echo "Test passed: Output matches expected results."
+      - if [ "$OUTPUT" != "$EXPECTED_OUTPUT" ]; then echo "Test failed Output does not match expected results."; exit 1; fi
+      - echo "Test passed, Output matches expected results."
       - echo "Preparing files for upload to S3..."
 artifacts:
   files:
