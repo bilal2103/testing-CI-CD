@@ -26,4 +26,4 @@ phases:
       - echo "Preparing files for upload to S3..."
 artifacts:
   files:
-    - "dist/SampleCode"  # Path to the generated executable (relative to the build environment)
+    - "dist/SampleCode/"  # Path to the generated executable (relative to the build environment)
