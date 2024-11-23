@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing Python and dependencies..."
+      - apt-get update
+      - apt-get install -y python3
+  build:
+    commands:
+      - echo "Running Python script to generate executable..."
+      - pyinstaller --onefile SampleCode.py  # Generate the executable
+      - echo "Build process completed! Executable generated."
+  post_build:
+    commands:
+      - echo "Post-build phase started..."
+      - echo "Preparing files for upload to S3..."
+artifacts:
+  files:
+    - "dist/SampleCode"  # Path to the generated executable (relative to the build environment)
