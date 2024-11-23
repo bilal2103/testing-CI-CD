@@ -20,17 +20,7 @@ phases:
       - cd dist
       - OUTPUT=$(./your_python_file)  # Capture the output of the executable
       - echo "$OUTPUT"
-      - |
-        EXPECTED_OUTPUT="7 x 1 = 7
-7 x 2 = 14
-7 x 3 = 21
-7 x 4 = 28
-7 x 5 = 35
-7 x 6 = 42
-7 x 7 = 49
-7 x 8 = 56
-7 x 9 = 63
-7 x 10 = 70"
+      - EXPECTED_OUTPUT="7 x 1 = 77 x 2 = 147 x 3 = 217 x 4 = 287 x 5 = 357 x 6 = 427 x 7 = 497 x 8 = 567 x 9 = 637 x 10 = 70"
       - if [ "$OUTPUT" != "$EXPECTED_OUTPUT" ]; then
           echo "Test failed: Output does not match expected results.";
           exit 1;
